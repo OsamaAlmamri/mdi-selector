@@ -1,0 +1,47 @@
+{
+  "name": "mdi-selector",
+  "version": "1.1.0",
+  "description": "selcte matirail design icon ",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:vue": "rollup -c && rollup -c --environment MINIFY",
+    "build:vue:watch": "rollup -c --watch",
+    "build:style": "sass --no-charset ./src/styles/index.scss | node ./build/print-banner.js > dist/ds-library.css && cleancss -o dist/ds-library.min.css dist/ds-library.css",
+    "build:lib": "rimraf dist && npm run build:vue && npm run build:style",
+    "publish:lib": "npm run build:lib && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OsamaAlmamri/mdi-selector.git"
+  },
+
+  "keywords": [
+    "mdi",
+    "icons",
+    "matirial",
+    "vueJs"
+  ],
+  "author": "Osama Almamari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OsamaAlmamri/mdi-selector/issues"
+  },
+  "homepage": "https://github.com/OsamaAlmamri/mdi-selector#readme",
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@vue/compiler-sfc": "^3.3.4",
+    "clean-css-cli": "^5.6.2",
+    "rimraf": "^5.0.1",
+    "rollup": "^2.79.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "@mdi/font": "^7.2.96",
+    "vue": "^3.2.13"
+  }
+}
