@@ -1,2 +1,2 @@
-export { s as IconSelector, i as default } from './index-12cebec5.mjs';
+export { s as IconSelector, i as default } from './index-a9bc418d.mjs';
 import 'vue';

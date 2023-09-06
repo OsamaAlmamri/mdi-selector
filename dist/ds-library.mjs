@@ -1,5 +1,5 @@
-/*! Material Design IcondsSelector  v1.1.0 */
-import { defineComponent, ref, computed, openBlock, createElementBlock, Fragment, createElementVNode, withDirectives, vModelText, normalizeClass, renderList, createCommentVNode, toDisplayString } from 'vue';
+/*! Material Design IcondsSelector  v1.2.0 */
+import { defineComponent, ref, onMounted, computed, openBlock, createElementBlock, Fragment, createElementVNode, withDirectives, vModelText, normalizeClass, normalizeStyle, renderList, createCommentVNode, toDisplayString } from 'vue';
 
 var script = defineComponent({
     name: "IconSelector",
@@ -7,6 +7,9 @@ var script = defineComponent({
         modelValue: {
             type: String,
             default: 'approved'
+        }, height: {
+            type: String,
+            default: "300 px"
         }
     },
     emits: ['update:modelValue'],
@@ -28977,6 +28980,9 @@ var script = defineComponent({
             }
         ]);
         var selected = ref('');
+        onMounted(function () {
+            selected.value = props.modelValue; // <div>
+        });
         function select(selection) {
             selected.value = selection;
             // props.modelValue = selection;
@@ -28997,49 +29003,57 @@ var script = defineComponent({
     },
 });
 
-const _hoisted_1 = { class: "icon_body" };
-const _hoisted_2 = { class: "container" };
-const _hoisted_3 = { class: "nosubmit" };
-const _hoisted_4 = { class: "flex-row" };
-const _hoisted_5 = { class: "flex-cell" };
-const _hoisted_6 = ["onClick"];
-const _hoisted_7 = { class: "caption" };
+const _hoisted_1 = { class: "search-header" };
+const _hoisted_2 = { class: "icon_body" };
+const _hoisted_3 = { class: "container" };
+const _hoisted_4 = { class: "nosubmit" };
+const _hoisted_5 = { class: "flex-row" };
+const _hoisted_6 = { class: "flex-cell" };
+const _hoisted_7 = ["onClick"];
+const _hoisted_8 = { class: "caption" };
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock(Fragment, null, [
     createElementVNode("div", _hoisted_1, [
       createElementVNode("div", _hoisted_2, [
-        createElementVNode("form", _hoisted_3, [
-          withDirectives(createElementVNode("input", {
-            "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((_ctx.query) = $event)),
-            class: "nosubmit",
-            type: "search",
-            placeholder: "Search..."
-          }, null, 512 /* NEED_PATCH */), [
-            [vModelText, _ctx.query]
-          ])
-        ]),
-        createElementVNode("i", {
-          class: normalizeClass(['mdi', 'mdi-' + _ctx.selected])
-        }, null, 2 /* CLASS */)
+        createElementVNode("div", _hoisted_3, [
+          createElementVNode("form", _hoisted_4, [
+            withDirectives(createElementVNode("input", {
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((_ctx.query) = $event)),
+              class: "nosubmit",
+              type: "search",
+              placeholder: "Search..."
+            }, null, 512 /* NEED_PATCH */), [
+              [vModelText, _ctx.query]
+            ])
+          ]),
+          createElementVNode("i", {
+            class: normalizeClass(['mdi', 'mdi-' + _ctx.selected])
+          }, null, 2 /* CLASS */)
+        ])
       ])
     ]),
-    createElementVNode("div", _hoisted_4, [
-      (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.filteredItems, (item) => {
-        return (openBlock(), createElementBlock("div", _hoisted_5, [
-          createElementVNode("div", {
-            class: "iconbox",
-            onClick: $event => (_ctx.select(item?.id))
-          }, [
-            createCommentVNode("        <i class=\"medium material-icons\">{{item?.name}}</i>"),
-            createElementVNode("i", {
-              class: normalizeClass(['mdi', 'mdi-' + item?.id])
-            }, null, 2 /* CLASS */)
-          ], 8 /* PROPS */, _hoisted_6),
-          createElementVNode("div", _hoisted_7, toDisplayString(item?.name), 1 /* TEXT */)
-        ]))
-      }), 256 /* UNKEYED_FRAGMENT */))
-    ])
+    createElementVNode("div", {
+      class: "content",
+      style: normalizeStyle({'max-height':_ctx.height})
+    }, [
+      createElementVNode("div", _hoisted_5, [
+        (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.filteredItems, (item) => {
+          return (openBlock(), createElementBlock("div", _hoisted_6, [
+            createElementVNode("div", {
+              class: "iconbox",
+              onClick: $event => (_ctx.select(item?.id))
+            }, [
+              createCommentVNode("        <i class=\"medium material-icons\">{{item?.name}}</i>"),
+              createElementVNode("i", {
+                class: normalizeClass(['mdi', 'mdi-' + item?.id])
+              }, null, 2 /* CLASS */)
+            ], 8 /* PROPS */, _hoisted_7),
+            createElementVNode("div", _hoisted_8, toDisplayString(item?.name), 1 /* TEXT */)
+          ]))
+        }), 256 /* UNKEYED_FRAGMENT */))
+      ])
+    ], 4 /* STYLE */)
   ], 64 /* STABLE_FRAGMENT */))
 }
 

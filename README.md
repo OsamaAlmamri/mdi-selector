@@ -17,7 +17,7 @@ import {IconSelector} from 'mdi-selector/dist/ds-library'
 ```
 #### in  your templete
 ```angular2html
-<IconSelector v-model="icon"></IconSelector>
+<IconSelector v-model="icon" height="300px"></IconSelector>
 ```
 
 

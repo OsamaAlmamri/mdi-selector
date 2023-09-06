@@ -1,5 +1,5 @@
-import { c as components$1, s as script } from './index-12cebec5.mjs';
-export { s as IconSelector } from './index-12cebec5.mjs';
+import { c as components$1, s as script } from './index-a9bc418d.mjs';
+export { s as IconSelector } from './index-a9bc418d.mjs';
 import 'vue';
 
 var DSLibrary$1 = {

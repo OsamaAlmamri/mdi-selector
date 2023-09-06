@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var IconSelector = require('./index-4f37b9bd.js');
+var IconSelector = require('./index-6251b559.js');
 require('vue');
 
 var DSLibrary$1 = {

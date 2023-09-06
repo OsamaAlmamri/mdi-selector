@@ -1,4 +1,4 @@
-/*! Material Design IcondsSelector  v1.1.0 */
+/*! Material Design IcondsSelector  v1.2.0 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
   typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
@@ -11,6 +11,9 @@
           modelValue: {
               type: String,
               default: 'approved'
+          }, height: {
+              type: String,
+              default: "300 px"
           }
       },
       emits: ['update:modelValue'],
@@ -28981,6 +28984,9 @@
               }
           ]);
           var selected = vue.ref('');
+          vue.onMounted(function () {
+              selected.value = props.modelValue; // <div>
+          });
           function select(selection) {
               selected.value = selection;
               // props.modelValue = selection;
@@ -29001,49 +29007,57 @@
       },
   });
 
-  const _hoisted_1 = { class: "icon_body" };
-  const _hoisted_2 = { class: "container" };
-  const _hoisted_3 = { class: "nosubmit" };
-  const _hoisted_4 = { class: "flex-row" };
-  const _hoisted_5 = { class: "flex-cell" };
-  const _hoisted_6 = ["onClick"];
-  const _hoisted_7 = { class: "caption" };
+  const _hoisted_1 = { class: "search-header" };
+  const _hoisted_2 = { class: "icon_body" };
+  const _hoisted_3 = { class: "container" };
+  const _hoisted_4 = { class: "nosubmit" };
+  const _hoisted_5 = { class: "flex-row" };
+  const _hoisted_6 = { class: "flex-cell" };
+  const _hoisted_7 = ["onClick"];
+  const _hoisted_8 = { class: "caption" };
 
   function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (vue.openBlock(), vue.createElementBlock(vue.Fragment, null, [
       vue.createElementVNode("div", _hoisted_1, [
         vue.createElementVNode("div", _hoisted_2, [
-          vue.createElementVNode("form", _hoisted_3, [
-            vue.withDirectives(vue.createElementVNode("input", {
-              "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((_ctx.query) = $event)),
-              class: "nosubmit",
-              type: "search",
-              placeholder: "Search..."
-            }, null, 512 /* NEED_PATCH */), [
-              [vue.vModelText, _ctx.query]
-            ])
-          ]),
-          vue.createElementVNode("i", {
-            class: vue.normalizeClass(['mdi', 'mdi-' + _ctx.selected])
-          }, null, 2 /* CLASS */)
+          vue.createElementVNode("div", _hoisted_3, [
+            vue.createElementVNode("form", _hoisted_4, [
+              vue.withDirectives(vue.createElementVNode("input", {
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((_ctx.query) = $event)),
+                class: "nosubmit",
+                type: "search",
+                placeholder: "Search..."
+              }, null, 512 /* NEED_PATCH */), [
+                [vue.vModelText, _ctx.query]
+              ])
+            ]),
+            vue.createElementVNode("i", {
+              class: vue.normalizeClass(['mdi', 'mdi-' + _ctx.selected])
+            }, null, 2 /* CLASS */)
+          ])
         ])
       ]),
-      vue.createElementVNode("div", _hoisted_4, [
-        (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(_ctx.filteredItems, (item) => {
-          return (vue.openBlock(), vue.createElementBlock("div", _hoisted_5, [
-            vue.createElementVNode("div", {
-              class: "iconbox",
-              onClick: $event => (_ctx.select(item?.id))
-            }, [
-              vue.createCommentVNode("        <i class=\"medium material-icons\">{{item?.name}}</i>"),
-              vue.createElementVNode("i", {
-                class: vue.normalizeClass(['mdi', 'mdi-' + item?.id])
-              }, null, 2 /* CLASS */)
-            ], 8 /* PROPS */, _hoisted_6),
-            vue.createElementVNode("div", _hoisted_7, vue.toDisplayString(item?.name), 1 /* TEXT */)
-          ]))
-        }), 256 /* UNKEYED_FRAGMENT */))
-      ])
+      vue.createElementVNode("div", {
+        class: "content",
+        style: vue.normalizeStyle({'max-height':_ctx.height})
+      }, [
+        vue.createElementVNode("div", _hoisted_5, [
+          (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(_ctx.filteredItems, (item) => {
+            return (vue.openBlock(), vue.createElementBlock("div", _hoisted_6, [
+              vue.createElementVNode("div", {
+                class: "iconbox",
+                onClick: $event => (_ctx.select(item?.id))
+              }, [
+                vue.createCommentVNode("        <i class=\"medium material-icons\">{{item?.name}}</i>"),
+                vue.createElementVNode("i", {
+                  class: vue.normalizeClass(['mdi', 'mdi-' + item?.id])
+                }, null, 2 /* CLASS */)
+              ], 8 /* PROPS */, _hoisted_7),
+              vue.createElementVNode("div", _hoisted_8, vue.toDisplayString(item?.name), 1 /* TEXT */)
+            ]))
+          }), 256 /* UNKEYED_FRAGMENT */))
+        ])
+      ], 4 /* STYLE */)
     ], 64 /* STABLE_FRAGMENT */))
   }
 
