@@ -1,4 +1,4 @@
-# This is vue 3 matirial design icons selector 
+# This is vue 3 matirial design icons picker 
 
 
 
