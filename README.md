@@ -28,7 +28,7 @@ import {IconSelector} from 'mdi-selector/dist/ds-library'
     @import "mdi-selector/dist/ds-library.css";
 </style>
 ```
-
+![desc.gif](desc.gif)
 ## Credits
 
 - [Osama Al-mamari](https://github.com/OsamaAlmamri)
